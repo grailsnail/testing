@@ -4,6 +4,10 @@ import android.app.*;
 import android.os.*;
 import android.view.*;
 import android.widget.*;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+
 
 public class MainActivity extends Activity
 {
@@ -13,5 +17,12 @@ public class MainActivity extends Activity
 	{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+		
+		
+		FragmentManager fm=getFragmentManager();
+		
+		FragmentTransaction ft= fm.beginTransaction();
+		ft.add(R.layout.fragview, new MyFragment());
+		ft.commit();
     }
 }
